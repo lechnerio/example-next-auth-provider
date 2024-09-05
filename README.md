@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# test-auth
 
-## Getting Started
+test-auth is a simple repository to explore and test various authentication providers using **next-auth**.
 
-First, run the development server:
+## How to use test-auth
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Authentication Secret
+
+The `NEXTAUTH_SECRET` is a critical piece of security for your NextAuth configuration. It is used to encrypt and sign session tokens. You only need to generate this secret **once**, regardless of how many authentication providers you add to your app.
+
+To generate the secret, you can use the following command in Node.js:
+
+```javascript
+require("crypto").randomBytes(32).toString("hex")
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+or in the browser console:
+```javascript
+crypto.getRandomValues(new Uint8Array(32)).reduce((acc,byte) => acc+byte.toString(16).padStart(2, '0'), '')
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Once generated, add it to your .env.local file like this:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+NEXTAUTH_SECRET=your_generated_secret_key
+```
 
-## Learn More
+This key is shared across all providers and ensures that session tokens are secured properly.
 
-To learn more about Next.js, take a look at the following resources:
+### Auth Providers
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### GitHub
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Create a New OAuth App** in your GitHub Developer settings.
+2. Set both the **Homepage URL** and **Authorization Callback URL** to `http://localhost:3000`.
+3. **Generate a new Client Secret** for your OAuth App.
+4. Replace the required keys in the `.env.local` file with the following:
 
-## Deploy on Vercel
+   - Your GitHub **Client ID** `AUTH_GITHUB_ID`
+   - Your GitHub **Client Secret** `AUTH_GITHUB_SECRET`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Google
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Go to Google Cloud Console** at [console.cloud.google.com](https://console.cloud.google.com/).
+2. **Create a new project**.
+3. Navigate to **APIs & Services** > **OAuth consent screen** and configure the consent screen (External or Internal).
+4. **Create OAuth credentials** in **APIs & Services** > **Credentials**:
+
+   - Select **Web Application** as the application type.
+   - Set **Authorized redirect URIs** to `http://localhost:3000/api/auth/callback/google`.
+   - Save the **Client ID** and **Client Secret**.
+
+5. Add the following to your `.env.local` file:
+
+   - Your Google **Client ID** `GOOGLE_CLIENT_ID`
+   - Your Google **Client Secret** `GOOGLE_CLIENT_SECRET`
+
+### Running the Project
+
+1. Install project dependencies with the following command:
+
+   ```bash
+   npm install
+   ```
+
+2. Start the development server using:
+
+   ```bash
+   npm run dev
+   ```
+
+   The app should now be running locally on `http://localhost:3000`.
+
+## Contributors
+
+Thanks to these awesome people for their contributions!
+
+| Contributors |
+|:---:|
+|[![lechnerio](https://github.com/lechnerio.png?size=50)](https://github.com/lechnerio)<br/> lechnerio|
+
+Feel free to use this example, and if you'd like to contribute, you’re more than welcome to add yourself to the contributors list and submit a pull request!
