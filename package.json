@@ -1,5 +1,5 @@
 {
-  "name": "test-auth",
+  "name": "next-auth-provider-example",
   "version": "0.1.0",
   "private": true,
   "scripts": {

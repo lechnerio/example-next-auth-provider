@@ -1,8 +1,8 @@
-# test-auth
+# next-auth-provider-example
 
-test-auth is a simple repository to explore and test various authentication providers using **next-auth**.
+next-auth-provider-example is a simple repository to explore and test various authentication providers using **next-auth**.
 
-## How to use test-auth
+## How to use next-auth-provider-example
 
 ### Authentication Secret
 
@@ -73,10 +73,9 @@ This key is shared across all providers and ensures that session tokens are secu
 
 ## Contributors
 
-Thanks to these awesome people for their contributions!
+
+Feel free to use this example, and if you'd like to contribute, you’re more than welcome to add yourself to the contributors list and submit a pull request!
 
 | Contributors |
 |:---:|
 |[![lechnerio](https://github.com/lechnerio.png?size=50)](https://github.com/lechnerio)<br/> lechnerio|
-
-Feel free to use this example, and if you'd like to contribute, you’re more than welcome to add yourself to the contributors list and submit a pull request!

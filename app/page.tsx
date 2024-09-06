@@ -5,10 +5,10 @@ import { signIn } from "next-auth/react"
 export default function Home() {
   return (
     <div className="mx-auto my-12 max-w-72">
-      <h1 className="text-3xl font-bold mb-6">test-auth</h1>
+      <h1 className="text-3xl font-bold mb-6">next-auth-provider-example</h1>
       <p>
-        <b>test-auth</b> is a simple repository to explore and test various
-        authentication providers using <b>next-auth</b>.
+        <b>next-auth-provider-example</b> is a simple repository to explore and
+        test various authentication providers using <b>next-auth</b>.
       </p>
 
       <div className="flex flex-col items-start gap-2 mt-12">
