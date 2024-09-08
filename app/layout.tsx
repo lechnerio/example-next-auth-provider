@@ -15,7 +15,7 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "next-auth-provider-example",
+  title: "example-next-auth-provider",
   description: "A simple example to use next auth providers",
 }
 

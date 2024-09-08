@@ -1,8 +1,8 @@
-# next-auth-provider-example
+# example-next-auth-provider
 
-next-auth-provider-example is a simple repository to explore and test various authentication providers using **next-auth**.
+example-next-auth-provider is a simple repository to explore and test various authentication providers using **next-auth**.
 
-## How to use next-auth-provider-example
+## How to use example-next-auth-provider
 
 ### Authentication Secret
 
@@ -15,8 +15,11 @@ require("crypto").randomBytes(32).toString("hex")
 ```
 
 or in the browser console:
+
 ```javascript
-crypto.getRandomValues(new Uint8Array(32)).reduce((acc,byte) => acc+byte.toString(16).padStart(2, '0'), '')
+crypto
+  .getRandomValues(new Uint8Array(32))
+  .reduce((acc, byte) => acc + byte.toString(16).padStart(2, "0"), "")
 ```
 
 Once generated, add it to your .env.local file like this:
@@ -73,9 +76,8 @@ This key is shared across all providers and ensures that session tokens are secu
 
 ## Contributors
 
-
 Feel free to use this example, and if you'd like to contribute, you’re more than welcome to add yourself to the contributors list and submit a pull request!
 
-| Contributors |
-|:---:|
-|[![lechnerio](https://github.com/lechnerio.png?size=50)](https://github.com/lechnerio)<br/> lechnerio|
+|                                             Contributors                                              |
+| :---------------------------------------------------------------------------------------------------: |
+| [![lechnerio](https://github.com/lechnerio.png?size=50)](https://github.com/lechnerio)<br/> lechnerio |
